@@ -28,7 +28,27 @@ export default {
   },
 
   async create(req: Request, res: Response) {
-    const data = req.body;
+    const {
+      name,
+      latitude,
+      longitude,
+      about,
+      instructions,
+      opening_hours,
+      open_on_weekends,
+      images
+    } = req.body;
+
+    const data = {
+      name,
+      latitude,
+      longitude,
+      about,
+      instructions,
+      opening_hours,
+      open_on_weekends: open_on_weekends === "true",
+      images
+    };
 
     const schema = yup.object().shape({
       name: yup.string().required(),
