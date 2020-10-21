@@ -13,7 +13,7 @@ export default class Image {
   id: number;
 
   @Column()
-  path: number;
+  path: string;
 
   @ManyToOne(() => Orphanage, orphanage => orphanage.images)
   @JoinColumn({ name: "orphanage_id" })
